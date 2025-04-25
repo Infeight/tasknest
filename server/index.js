@@ -34,6 +34,18 @@ app.get('/getuser',verify, async(req, res) => {
     mail: mail
   });
 
+  const token = jwt.sign(
+    {username: username,mail:mail},
+    JWT_SECRET,
+    { expiresIn: '1h' }
+  );
+   res.cookie('token', token, {
+    httpOnly: true,      
+    secure: false,       
+    sameSite: 'Lax',
+    maxAge: 60 * 60 * 1000 
+  })
+
   res.json({ loggedin: loggedin });
 })
 
@@ -89,6 +101,18 @@ app.post('/loginservices', async(req,res)=>{
       username: username,
       mail: mail
     });
+
+    const token = jwt.sign(
+      {username: username,mail:mail},
+      JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+     res.cookie('token', token, {
+      httpOnly: true,      
+      secure: false,       
+      sameSite: 'Lax',
+      maxAge: 60 * 60 * 1000 
+    })
   
     res.json({ loggedin: loggedin });
   });

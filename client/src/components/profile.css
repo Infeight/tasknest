@@ -1,0 +1,30 @@
+.profile{
+    display: flex
+    ;
+        flex-direction: column;
+        width: 80vw;
+        margin: auto;
+        font-size: 1.4vw;
+        box-sizing: border-box;
+        padding: 5px;
+        justify-content: space-evenly;
+        font-family: 'Inter';
+        font-weight: 500;
+    
+}
+.userdetail{
+    margin: 1vw;
+}
+
+@media screen and (min-width: 300px) {
+    @media screen and (max-width: 600px) {
+        .userdetail{
+            font-size: 3.5vw;
+        }
+    }}
+    @media screen and (min-width:760px) {
+        @media screen and (max-width:1024px) {
+            .userdetail{
+                font-size: 3.5vw;
+            }
+        }}

@@ -24,17 +24,22 @@ const Homeservices = () => {
 
   useEffect(() => {
     const getUserData = async () => {
-      try {
-        const res = await fetch('https://tasknest-3wwt.onrender.com/getuser', {
-          method: 'GET',
-          credentials: 'include',
-        });
-        const data = await res.json();
-        setUserdet(data); 
-  
-      } catch (err) {
-        console.error("User not logged in or error fetching user", err);
+      const data = {
+        username: localStorage.getItem('current-users'),
+        mail: localStorage.getItem('current-users-mail')
       }
+      
+        const res = await fetch('https://tasknest-3wwt.onrender.com/getuser', {
+          method: 'post',
+          credentials: 'include',
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+        const data1 = await res.json();
+        setUserdet(data1); 
+  
     };
   
     getUserData();

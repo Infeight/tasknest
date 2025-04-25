@@ -16,10 +16,10 @@ const Mybooking = () => {
 
     const fetchData = async () => {
         const data = {
-            // clientname: localStorage.getItem('current-users'),
-            // clientmail: localStorage.getItem('current-users-mail')
+            clientname: sessionStorage.getItem('current-users'),
+            clientmail: sessionStorage.getItem('current-users-mail')
         }
-            const orders =  fetch(`https://tasknest-3wwt.onrender.com/mybooking`, { method: 'post', headers: { "Content-Type": "application/json" },credentials: 'include'})
+            const orders =  fetch(`https://tasknest-3wwt.onrender.com/mybooking`, { method: 'post', headers: { "Content-Type": "application/json" },credentials: 'include', body: JSON.stringify(data) })
             orders.then(response => response.json()).then(data => {
                 setOrders(data)
             })

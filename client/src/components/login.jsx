@@ -158,8 +158,10 @@ const Login = () => {
         console.log(data)
         if (data.loggedin != null && data.loggedin.mail === user.mail && data.loggedin.role === 'Customer') {
           console.log('good')
-          localStorage.setItem('isloggedin', true)
-          localStorage.setItem('user-role', data.loggedin.role)
+          sessionStorage.setItem('isloggedin', true)
+          sessionStorage.setItem('current-users', data.loggedin.username)
+          sessionStorage.setItem('current-users-mail', data.loggedin.mail)
+          sessionStorage.setItem('user-role', data.loggedin.role)
 
 
           document.getElementById('input-cont').style.display = 'none'
@@ -168,9 +170,9 @@ const Login = () => {
         }
         else if (data.loggedin != null && data.loggedin.mail === user.mail && data.loggedin.role === 'Provider') {
           console.log('good')
-          localStorage.setItem('isloggedin', true)
-          localStorage.setItem('current-users-phone', data.loggedin.phone)
-          localStorage.setItem('user-role', data.loggedin.role)
+          sessionStorage.setItem('isloggedin', true)
+          sessionStorage.setItem('current-users-phone', data.loggedin.phone)
+          sessionStorage.setItem('user-role', data.loggedin.role)
 
 
           document.getElementById('input-cont').style.display = 'none'
@@ -208,8 +210,10 @@ const Login = () => {
       const resdata = await signupreq.json();
       console.log(resdata)
       if (resdata.message == 'Success') {
-        localStorage.setItem('isloggedin', true)
-        localStorage.setItem('user-role', signup.role)
+        sessionStorage.setItem('isloggedin', true)
+        sessionStorage.setItem('current-users', signup.username)
+        sessionStorage.setItem('current-users-mail',signup.mail)
+        sessionStorage.setItem('user-role', signup.role)
         document.getElementById('signupcont').style.display = 'none'
         document.getElementById('rolecont').style.display = 'none'
         document.getElementById('logo').style.display = 'none'
@@ -241,8 +245,11 @@ const Login = () => {
     const resdata = await signupservice.json();
 
     if (resdata.message == 'Success') {
-      localStorage.setItem('user-role', data.loggedin.role)
-      localStorage.setItem('current-users-servicename', signupservices.servicename);
+      sessionStorage.setItem('user-role', data.loggedin.role)
+      sessionStorage.setItem('isloggedin', true)
+      sessionStorage.setItem('current-users', signupservices.username)
+      sessionStorage.setItem('current-users-mail', signupservices.mail)
+      sessionStorage.setItem('current-users-servicename', signupservices.servicename);
       document.getElementById('signup_services').style.display = 'none'
       document.getElementById('newusercont').style.display = 'flex'
       document.getElementById('logo').style.display = 'none'

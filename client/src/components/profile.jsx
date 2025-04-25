@@ -13,7 +13,7 @@ const Profile = () => {
     })
     
 useEffect(()=>{
-    if(localStorage.getItem('user-role')==='Provider'){
+    if(sessionStorage.getItem('user-role')==='Provider'){
         handlefetch();
      }
      else{
@@ -23,10 +23,10 @@ useEffect(()=>{
 
    const handlefetch =async()=>{
     const data = {
-        // username: localStorage.getItem('current-users'),
-        // mail: localStorage.getItem('current-users-mail')
+        username: sessionStorage.getItem('current-users'),
+        mail: sessionStorage.getItem('current-users-mail')
     }
-    const alllogin = fetch('https://tasknest-3wwt.onrender.com/signinservices', { method: 'post', credentials: 'include' })
+    const alllogin = fetch('https://tasknest-3wwt.onrender.com/signinservices', { method: 'post', credentials: 'include' , headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
 
     alllogin.then(response => response.json()).then(data => {
         console.log(data)
@@ -62,7 +62,7 @@ console.log(userdet)
 
     <div className="profile">
         {
-           Object.keys(userdet.loogedin).length!=0 && localStorage.getItem('user-role')==='Provider'?
+           Object.keys(userdet.loogedin).length!=0 && sessionStorage.getItem('user-role')==='Provider'?
                 
                     <div className="userdetails">
                         <div className="userdetail">Service Name: {userdet.loogedin.servicename}</div>
@@ -80,7 +80,7 @@ console.log(userdet)
                         <div className="userdetail">Username: {userdet.loogedin.username}</div>
                         <div className="userdetail">Phone: {userdet.loogedin.phone}</div>
                         <div className="userdetail">Mail: {userdet.loogedin.mail}</div>
-                        <div className="userdetail">You are signed in as a {localStorage.getItem('user-role')}</div>
+                        <div className="userdetail">You are signed in as a {sessionStorage.getItem('user-role')}</div>
 
                     </div>
             </>

@@ -27,24 +27,12 @@ const server = app.listen(port,() =>{
 })
 
 
-app.get('/getuser',verify, async(req, res) => {
-  const { username, mail } = req.user;    
+app.post('/getuser', async(req, res) => {
+  const { username, mail } = req.body;    
   const loggedin = await login.login.findOne({
     username: username,
     mail: mail
   });
-
-  const token = jwt.sign(
-    {username: username,mail:mail},
-    JWT_SECRET,
-    { expiresIn: '1h' }
-  );
-   res.cookie('token', token, {
-    httpOnly: true,      
-    secure: false,       
-    sameSite: 'Lax',
-    maxAge: 60 * 60 * 1000 
-  })
 
   res.json({ loggedin: loggedin });
 })
@@ -95,25 +83,13 @@ app.post('/loginservices', async(req,res)=>{
   
 })
 
-  app.post('/signinservices', verify, async (req, res) => {
-    const { username, mail } = req.user;    
+  app.post('/signinservices',  async (req, res) => {
+    const { username, mail } = req.body;    
     const loggedin = await loginservices.loginservices.findOne({
       username: username,
       mail: mail
     });
 
-    const token = jwt.sign(
-      {username: username,mail:mail},
-      JWT_SECRET,
-      { expiresIn: '1h' }
-    );
-     res.cookie('token', token, {
-      httpOnly: true,      
-      secure: false,       
-      sameSite: 'Lax',
-      maxAge: 60 * 60 * 1000 
-    })
-  
     res.json({ loggedin: loggedin });
   });
   
@@ -209,8 +185,8 @@ app.post('/services', async(req,res)=>{
    res.json(allservices)
   })
 
-  app.post('/orders', verify,async(req,res)=>{
-    const { username, mail } = req.user;
+  app.post('/orders',async(req,res)=>{
+    const { username, mail } = req.body;
 
 
    const getorders = await booking.booking.find({
@@ -226,8 +202,8 @@ app.post('/services', async(req,res)=>{
    res.json(allorders)
   })
 
-  app.post('/mybooking',verify, async(req,res)=>{
-    const { username, mail } = req.user;
+  app.post('/mybooking', async(req,res)=>{
+    const { username, mail } = req.body;
    
   
     // console.log(data)

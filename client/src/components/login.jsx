@@ -265,7 +265,7 @@ const Login = () => {
         <div className="loading" id='loading'>
 
 
-          <iframe id='loadingframe' src="https://lottie.host/embed/0779841c-24c8-4da4-b4bb-8b366930a3af/z6EltEHTOI.lottie" frameborder="0"></iframe>
+          {/* <iframe id='loadingframe' src="https://lottie.host/embed/0779841c-24c8-4da4-b4bb-8b366930a3af/z6EltEHTOI.lottie" frameborder="0"></iframe> */}
 
           <p className='loadingstatement' id='loadingstatement'>{loadingstatements[Math.floor(Math.random() * 5)]}</p>
           <p className='loadingstatement' id='notfound' style={{ display: 'none' }}>We're sorry for the inconvenience 😔</p>

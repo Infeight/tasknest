@@ -10,7 +10,7 @@ const Mybooking = () => {
 
     useEffect(()=>{
         fetchData();
-    })
+    },[])
 
     
 

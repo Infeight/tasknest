@@ -19,7 +19,7 @@ useEffect(()=>{
      else{
         getUserData();
      }
-})
+},[])
 
    const handlefetch =async()=>{
     const data = {

@@ -3,7 +3,7 @@ const mongoose = require ('mongoose')
 mongoose.connect('mongodb+srv://revanthnaidunakka:199rkodSss0xkmnp@cluster0.0lcwo8a.mongodb.net/').then(()=>{
     console.log('Connected to db')
 }).catch(()=>{
-    console.log("Sorry, There's an error!")
+    console.log("Sorry, There's an error in db!")
 })
 
 

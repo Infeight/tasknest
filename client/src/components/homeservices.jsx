@@ -38,7 +38,7 @@ const Homeservices = () => {
     };
   
     getUserData();
-  }, []);
+  }, [services]);
 
   const handleservices = async(e) =>{
     console.log(localStorage.getItem('isloggedin'))
@@ -91,6 +91,7 @@ const Homeservices = () => {
       }
 
       const handleconfirm=(e)=>{ 
+        console.log(userdet)
         const data ={
           address:e.target.closest('.serviceprovider1').querySelector('#address-in').value,
           requirement:e.target.closest('.serviceprovider1').querySelector('#requirement').value,

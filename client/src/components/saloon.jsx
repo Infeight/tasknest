@@ -38,7 +38,7 @@ const Saloon = () => {
         };
       
         getUserData();
-      }, []);
+      }, [services]);
 
     const handleservices = async (e) => {
         if (localStorage.getItem('isloggedin') == 'true') {

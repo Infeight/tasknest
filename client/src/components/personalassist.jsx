@@ -40,7 +40,7 @@ const Personalassist = () => {
             };
           
             getUserData();
-          }, []);
+          }, [services]);
     
 
     const handleservices = async (e) => {

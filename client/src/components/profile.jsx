@@ -27,16 +27,19 @@ useEffect(()=>{
         username: sessionStorage.getItem('current-users'),
         mail: sessionStorage.getItem('current-users-mail')
     }
-    const res = await fetch('https://tasknest-3wwt.onrender.com/signinservices', {
-      method: 'post',
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-    const data1 = await res.json();
-    setUserdet({ loogedin: data1.loggedin }); 
+    
+    try {
+      const res = await fetch('https://tasknest-3wwt.onrender.com/signinservices', {
+        method: 'post', 
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const data1 = await res.json();
+      setUserdet({ loogedin: data1.loggedin }); 
 
+    } catch (err) {
+      console.error("User not logged in or error fetching user", err);
+    }
 
    }
 

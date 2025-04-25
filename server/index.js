@@ -203,22 +203,22 @@ app.post('/services', async(req,res)=>{
   })
 
   app.post('/mybooking', async(req,res)=>{
-    const { username, mail } = req.body;
+    const { clientname, clientmail } = req.body;
    
   
     // console.log(data)
    const getorders = await booking.booking.find({
-        clientname:username,
-        clientmail:mail,
+        clientname:clientname,
+        clientmail:clientmail,
       })
-    
+    // console.log(getorders)
       const allorders = getorders.map(order=>{
         return{
           order: order
         }
       })
 
-   res.json(getorders)
+   res.json(allorders)
   })
 
   app.post('/bookings', async(req,res)=>{

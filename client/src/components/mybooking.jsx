@@ -26,6 +26,7 @@ const Mybooking = () => {
           }
         });
         const data1 = await res.json();
+        console.log(data1)
         setOrders(data1);
       
     };

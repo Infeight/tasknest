@@ -18,10 +18,15 @@ const Mybooking = () => {
             clientname: sessionStorage.getItem('current-users'),
             clientmail: sessionStorage.getItem('current-users-mail')
         }
-            const orders =  fetch(`https://tasknest-3wwt.onrender.com/mybooking`, { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
-            orders.then(response => response.json()).then(data => {
-                setOrders(data)
-            })
+        const res = await fetch('https://tasknest-3wwt.onrender.com/mybooking', {
+          method: 'post',
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+        const data1 = await res.json();
+        setOrders(data1);
       
     };
 

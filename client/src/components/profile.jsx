@@ -35,7 +35,8 @@ useEffect(()=>{
       }
     });
     const data1 = await res.json();
-    setUserdet(data1);
+    setUserdet({ loogedin: data1.loggedin }); 
+
 
    }
 

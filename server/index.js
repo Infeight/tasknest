@@ -186,12 +186,12 @@ app.post('/services', async(req,res)=>{
   })
 
   app.post('/orders',async(req,res)=>{
-    const { username, mail } = req.body;
+    const { serviceusername, servicemail } = req.body;
 
 
    const getorders = await booking.booking.find({
-     serviceusername: username,
-      servicemail: mail,
+     serviceusername: serviceusername,
+      servicemail: servicemail,
       })
       const allorders = getorders.map(order=>{
         return{

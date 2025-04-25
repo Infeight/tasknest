@@ -15,13 +15,19 @@ const Serviceprovider = () => {
 
     const fetchData = async () => {
       const data = {
-          username: sessionStorage.getItem('current-users'), 
-          mail: sessionStorage.getItem('current-users-mail')
+        serviceusername: sessionStorage.getItem('current-users'),
+        servicemail: sessionStorage.getItem('current-users-mail')
+    }
+    const res = await fetch('https://tasknest-3wwt.onrender.com/orders', {
+      method: 'post',
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
       }
-            const orders =  fetch(`https://tasknest-3wwt.onrender.com/orders`, { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(data) })
-            orders.then(response => response.json()).then(data => {
-                setOrders(data)
-            })
+    });
+    const data1 = await res.json();
+    console.log(data1)
+    setOrders(data1);
       
     };
 

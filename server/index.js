@@ -89,7 +89,7 @@ app.post('/loginservices', async(req,res)=>{
       username: username,
       mail: mail
     });
-
+   console.log(loggedin)
     res.json({ loggedin: loggedin });
   });
   
@@ -193,6 +193,7 @@ app.post('/services', async(req,res)=>{
      serviceusername: serviceusername,
       servicemail: servicemail,
       })
+      console.log(getorders)
       const allorders = getorders.map(order=>{
         return{
           order: order

@@ -152,7 +152,7 @@ const Login = () => {
         password: user.password
       }
       console.log(userdet)
-      const alllogin = fetch(`https://tasknest-3wwt.onrender.com/${userdet.role == 'Customer' ? 'login' : 'loginservices'}`, { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(userdet) })
+      const alllogin = fetch(`https://tasknest-server-mauve.vercel.app/${userdet.role == 'Customer' ? 'login' : 'loginservices'}`, { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(userdet) })
 
       alllogin.then(response => response.json()).then(data => {
         console.log(data)
@@ -203,7 +203,7 @@ const Login = () => {
     }
     else {
 
-      const signupreq = await fetch('https://tasknest-3wwt.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(signup) })
+      const signupreq = await fetch('https://tasknest-server-mauve.vercel.app/signup', { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(signup) })
 
       const resdata = await signupreq.json();
       console.log(resdata)

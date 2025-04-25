@@ -29,6 +29,7 @@ const Mybooking = () => {
         setOrders(data1);
       
     };
+    console.log(setOrders)
 
   return (
     <>

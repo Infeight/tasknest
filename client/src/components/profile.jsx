@@ -51,8 +51,8 @@ useEffect(()=>{
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      const data = await res.json();
-      setUserdet({ loogedin: data.loggedin }); 
+      const data1 = await res.json();
+      setUserdet({ loogedin: data1.loggedin }); 
 
     } catch (err) {
       console.error("User not logged in or error fetching user", err);

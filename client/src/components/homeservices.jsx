@@ -25,8 +25,8 @@ const Homeservices = () => {
   useEffect(() => {
     const getUserData = async () => {
       const data = {
-        username: localStorage.getItem('current-users'),
-        mail: localStorage.getItem('current-users-mail')
+        username: sessionStorage.getItem('current-users'),
+        mail: sessionStorage.getItem('current-users-mail')
       }
       
         const res = await fetch('https://tasknest-3wwt.onrender.com/getuser', {
@@ -46,8 +46,8 @@ const Homeservices = () => {
   }, [services]);
 
   const handleservices = async(e) =>{
-    console.log(localStorage.getItem('isloggedin'))
-    if(localStorage.getItem('isloggedin') == 'true'){
+    console.log(sessionStorage.getItem('isloggedin'))
+    if(sessionStorage.getItem('isloggedin') == 'true'){
       document.querySelectorAll('.service1').forEach((item)=>{
         item.style.backgroundColor=''
       })

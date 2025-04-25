@@ -8,7 +8,7 @@ import { useState,useEffect } from 'react'
 const Navbar = () => {
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem('isloggedin');
+    const isLoggedIn = sessionStorage.getItem('isloggedin');
     if (isLoggedIn === 'false') {
      document.getElementById('signinbtn').addEventListener('click', handlesignin)
     }
@@ -19,7 +19,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(()=>{
-    if(localStorage.getItem('user-role')==='Provider'){
+    if(sessionStorage.getItem('user-role')==='Provider'){
        document.getElementById('bookings').style.display = 'none'
     }
     else{
@@ -36,12 +36,12 @@ const Navbar = () => {
     navigate('/'); // change '/target-page' to your route
     document.getElementById('signinbtn').innerText = 'Sign In'
    
-    localStorage.removeItem('user-role');
-    localStorage.setItem('isloggedin', false);
+    sessionStorage.removeItem('user-role');
+    sessionStorage.setItem('isloggedin', false);
   }
 
   const handlemybookings = () => {
-    if(localStorage.getItem('isloggedin')==='true'){
+    if(sessionStorage.getItem('isloggedin')==='true'){
       navigate('/yourbookings'); 
     }
     else{
@@ -50,7 +50,7 @@ const Navbar = () => {
   };
 
   const handleprofile = () => {
-    if(localStorage.getItem('isloggedin')==='true'){
+    if(sessionStorage.getItem('isloggedin')==='true'){
       navigate('/profile'); 
     }
     else{
@@ -59,7 +59,7 @@ const Navbar = () => {
   };
 
   const handlehome = () => {
-    if(localStorage.getItem('user-role')==='Provider'){
+    if(sessionStorage.getItem('user-role')==='Provider'){
       navigate('/serviceprovider'); 
     }
     else{

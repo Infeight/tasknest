@@ -9,7 +9,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const isLoggedIn = sessionStorage.getItem('isloggedin');
-    if (isLoggedIn === 'false') {
+    if (isLoggedIn === 'false' || isLoggedIn === null) {
+      document.getElementById('signinbtn').innerText = 'Sign In'
      document.getElementById('signinbtn').addEventListener('click', handlesignin)
     }
     else{

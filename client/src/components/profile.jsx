@@ -7,6 +7,8 @@ import Navbar from './navbar'
 
 const Profile = () => {
 
+  console.log(sessionStorage.getItem('current-users'))
+  console.log(sessionStorage.getItem('current-users-mail'))
    
     const [userdet, setUserdet] = useState({
         loogedin: {}

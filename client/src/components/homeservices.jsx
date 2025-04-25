@@ -21,6 +21,8 @@ const Homeservices = () => {
   const [services,setServices] = useState([]);
   const [userdet, setUserdet] = useState(null)
 
+  console.log(sessionStorage.getItem('current-users'))
+  console.log(sessionStorage.getItem('current-users-mail'))
 
   useEffect(() => {
     const getUserData = async () => {

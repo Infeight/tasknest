@@ -12,7 +12,8 @@ const Mybooking = () => {
         fetchData();
     },[])
 
-    
+    console.log(sessionStorage.getItem('current-users'))
+    console.log(sessionStorage.getItem('current-users-mail'))
 
     const fetchData = async () => {
         const data = {

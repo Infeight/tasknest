@@ -218,7 +218,7 @@ app.post('/services', async(req,res)=>{
         }
       })
 
-   res.json(allorders)
+   res.json(getorders)
   })
 
   app.post('/bookings', async(req,res)=>{

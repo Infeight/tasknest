@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 
 app.use(cors({
-    origin: ['https://tasknest-pink.vercel.app/', 'http://localhost:5173'],
+    origin: ['https://tasknest-pink.vercel.app', 'http://localhost:5173'],
     methods: ['GET', 'POST'],
     credentials: true,
 }));

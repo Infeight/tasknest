@@ -26,6 +26,19 @@ const server = app.listen(port,() =>{
     console.log(`listening on port ${port}`)
 })
 
+app.get('/', async(req, res) => {
+  const { username, mail } = req.body;
+  const loggedin = await login.login.findOne({
+    username: username,
+    mail: mail
+  });
+  const getorders = await booking.booking.find({
+    clientname:username,
+    clientmail:usermail,
+  })
+res.send(loggedin,getorders)
+})
+
 
 app.post('/getuser', async(req, res) => {
   const { username, mail } = req.body;    

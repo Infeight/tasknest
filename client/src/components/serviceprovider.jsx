@@ -18,7 +18,7 @@ const Serviceprovider = () => {
         //     serviceusername: localStorage.getItem('current-users'),
         //     servicemail: localStorage.getItem('current-users-mail')
         // }
-            const orders =  fetch(`http://localhost:5004/orders`, { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include' })
+            const orders =  fetch(`https://tasknest-3wwt.onrender.com/orders`, { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include' })
             orders.then(response => response.json()).then(data => {
                 setOrders(data)
             })
@@ -32,7 +32,7 @@ const Serviceprovider = () => {
         _id: e.target.closest('.order').querySelector('.orderid').innerText
         }
          
-        const accept = fetch(`http://localhost:5004/acceptorder`, { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })    
+        const accept = fetch(`https://tasknest-3wwt.onrender.com/acceptorder`, { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })    
         accept.then(response => response.json()).then(data => {
             if(data.message === 'Success'){
               e.target.closest('.status').innerText = 'Status: Accepted'
@@ -48,7 +48,7 @@ const Serviceprovider = () => {
          _id: e.target.closest('.order').querySelector('.orderid').innerText
          }
           
-         const accept = fetch(`http://localhost:5004/rejectorder`, { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })    
+         const accept = fetch(`https://tasknest-3wwt.onrender.com/rejectorder`, { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })    
          accept.then(response => response.json()).then(data => {
              if(data.message === 'Success'){
                e.target.closest('.status').innerText = 'Status: Rejected'

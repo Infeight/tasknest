@@ -152,7 +152,7 @@ const Login = () => {
         password: user.password
       }
       console.log(userdet)
-      const alllogin = fetch(`http://localhost:5004/${userdet.role == 'Customer' ? 'login' : 'loginservices'}`, { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(userdet) })
+      const alllogin = fetch(`https://tasknest-3wwt.onrender.com/${userdet.role == 'Customer' ? 'login' : 'loginservices'}`, { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(userdet) })
 
       alllogin.then(response => response.json()).then(data => {
         console.log(data)
@@ -203,7 +203,7 @@ const Login = () => {
     }
     else {
 
-      const signupreq = await fetch('http://localhost:5004/signup', { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(signup) })
+      const signupreq = await fetch('https://tasknest-3wwt.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(signup) })
 
       const resdata = await signupreq.json();
       console.log(resdata)
@@ -237,7 +237,7 @@ const Login = () => {
       role: signup.role,
       price: signupservices.price
     }
-    const signupservice = await fetch('http://localhost:5004/signupservice', { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(data) })
+    const signupservice = await fetch('https://tasknest-3wwt.onrender.com/signupservice', { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(data) })
     const resdata = await signupservice.json();
 
     if (resdata.message == 'Success') {

@@ -27,7 +27,7 @@ const Personalassist = () => {
           useEffect(() => {
             const getUserData = async () => {
               try {
-                const res = await fetch('http://localhost:5004/getuser', {
+                const res = await fetch('https://tasknest-3wwt.onrender.com/getuser', {
                   method: 'GET',
                   credentials: 'include',
                 });
@@ -53,7 +53,7 @@ const Personalassist = () => {
             const data = {
                 service: e.target.innerText
             }
-            const services = fetch('http://localhost:5004/services', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+            const services = fetch('https://tasknest-3wwt.onrender.com/services', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
             services.then((response) => response.json()).then((data) => {
                 setServices(data);
                 if (data != '') {
@@ -105,7 +105,7 @@ const Personalassist = () => {
             status: 'Pending'
         }
 
-        const booking = fetch('http://localhost:5004/bookings', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+        const booking = fetch('https://tasknest-3wwt.onrender.com/bookings', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
         booking.then((response) => response.json()).then((data) => {
             console.log(data)
             if (data.message == 'Success') {

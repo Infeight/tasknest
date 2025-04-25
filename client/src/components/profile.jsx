@@ -26,7 +26,7 @@ useEffect(()=>{
         // username: localStorage.getItem('current-users'),
         // mail: localStorage.getItem('current-users-mail')
     }
-    const alllogin = fetch('http://localhost:5004/signinservices', { method: 'post', credentials: 'include' })
+    const alllogin = fetch('https://tasknest-3wwt.onrender.com/signinservices', { method: 'post', credentials: 'include' })
 
     alllogin.then(response => response.json()).then(data => {
         console.log(data)
@@ -36,7 +36,7 @@ useEffect(()=>{
 
    const getUserData = async () => {
     try {
-      const res = await fetch('http://localhost:5004/getuser', {
+      const res = await fetch('https://tasknest-3wwt.onrender.com/getuser', {
         method: 'GET',
         credentials: 'include',
       });

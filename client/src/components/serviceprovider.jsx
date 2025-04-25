@@ -38,31 +38,40 @@ const Serviceprovider = () => {
         _id: e.target.closest('.order').querySelector('.orderid').innerText
         }
          
-        const accept = fetch(`https://tasknest-3wwt.onrender.com/acceptorder`, { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })    
-        accept.then(response => response.json()).then(data => {
-            if(data.message === 'Success'){
-              e.target.closest('.status').innerText = 'Status: Accepted'
-              e.target.closest('.status').style.color = 'green'
-            }else{
-                alert('Error')
-            }
-        })
+        const res = await fetch('https://tasknest-3wwt.onrender.com/acceptorder', {
+          method: 'post',
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+        const data1 = await res.json();
+        if(data1.message === 'Success'){
+            e.target.closest('.status').innerText = 'Status: Accepted'
+            e.target.closest('.status').style.color = 'green' 
+        }else{
+            alert('Error')
+        }
     }
 
     const handleRejectOrder = async (e) => {
         const data = {
          _id: e.target.closest('.order').querySelector('.orderid').innerText
          }
-          
-         const accept = fetch(`https://tasknest-3wwt.onrender.com/rejectorder`, { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })    
-         accept.then(response => response.json()).then(data => {
-             if(data.message === 'Success'){
-               e.target.closest('.status').innerText = 'Status: Rejected'
-              e.target.closest('.status').style.color = 'red'
-             }else{
-                 alert('Error')
-             }
-         })
+         const res = await fetch('https://tasknest-3wwt.onrender.com/rejectorder', {
+          method: 'post',
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+        const data1 = await res.json();
+        if(data1.message === 'Success'){
+            e.target.closest('.status').innerText = 'Status: Rejected'
+            e.target.closest('.status').style.color = 'red' 
+        }else{
+            alert('Error')
+        }
      }
     
 

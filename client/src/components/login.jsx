@@ -171,8 +171,10 @@ const Login = () => {
         else if (data.loggedin != null && data.loggedin.mail === user.mail && data.loggedin.role === 'Provider') {
           console.log('good')
           sessionStorage.setItem('isloggedin', true)
-          sessionStorage.setItem('current-users-phone', data.loggedin.phone)
+          sessionStorage.setItem('current-users', data.loggedin.username)
+          sessionStorage.setItem('current-users-mail', data.loggedin.mail)
           sessionStorage.setItem('user-role', data.loggedin.role)
+          
 
 
           document.getElementById('input-cont').style.display = 'none'

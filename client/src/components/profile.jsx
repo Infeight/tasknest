@@ -7,8 +7,7 @@ import Navbar from './navbar'
 
 const Profile = () => {
 
-  console.log(sessionStorage.getItem('current-users'))
-  console.log(sessionStorage.getItem('current-users-mail'))
+
    
     const [userdet, setUserdet] = useState({
         loogedin: {}
@@ -28,7 +27,7 @@ useEffect(()=>{
         username: sessionStorage.getItem('current-users'),
         mail: sessionStorage.getItem('current-users-mail')
     }
-    const alllogin = fetch('https://tasknest-3wwt.onrender.com/signinservices', { method: 'post', credentials: 'include' , headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+    const alllogin = fetch('https://tasknest-3wwt.onrender.com/signinservices', { method: 'post' , headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
 
     alllogin.then(response => response.json()).then(data => {
         console.log(data)

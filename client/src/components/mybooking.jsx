@@ -12,15 +12,13 @@ const Mybooking = () => {
         fetchData();
     },[])
 
-    console.log(sessionStorage.getItem('current-users'))
-    console.log(sessionStorage.getItem('current-users-mail'))
 
     const fetchData = async () => {
         const data = {
             clientname: sessionStorage.getItem('current-users'),
             clientmail: sessionStorage.getItem('current-users-mail')
         }
-            const orders =  fetch(`https://tasknest-3wwt.onrender.com/mybooking`, { method: 'post', headers: { "Content-Type": "application/json" },credentials: 'include', body: JSON.stringify(data) })
+            const orders =  fetch(`https://tasknest-3wwt.onrender.com/mybooking`, { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
             orders.then(response => response.json()).then(data => {
                 setOrders(data)
             })

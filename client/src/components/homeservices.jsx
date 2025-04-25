@@ -33,7 +33,6 @@ const Homeservices = () => {
       
         const res = await fetch('https://tasknest-3wwt.onrender.com/getuser', {
           method: 'post',
-          credentials: 'include',
           body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json"
